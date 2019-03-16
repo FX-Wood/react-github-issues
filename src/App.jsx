@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import './App.css';
 import SplashPage from './SplashPage';
+import IssueIndex from './IssueIndex';
 
 class App extends Component {
   constructor(props) {
@@ -33,16 +34,7 @@ class App extends Component {
           </ul>
         </nav>
         <SplashPage />
-        <div className="index">
-          <h2>Number of issues</h2>
-          <ul>
-            <li className="index-issue">
-              <h3>Issue title</h3>
-              <i> number of likes icon</i>
-              <p>open or closed indicator <span><em>amount of time the issue has been open</em></span></p>
-            </li>
-          </ul>
-        </div>
+        <IssueIndex />
         <div className="show">
           <h1>Issue Title</h1>
           <h2>Issue number</h2>
