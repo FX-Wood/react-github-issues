@@ -3,6 +3,7 @@ import axios from 'axios'
 import './App.css';
 import SplashPage from './SplashPage';
 import IssueIndex from './IssueIndex';
+import IssueShow from './IssueShow';
 
 class App extends Component {
   constructor(props) {
@@ -35,17 +36,7 @@ class App extends Component {
         </nav>
         <SplashPage />
         <IssueIndex />
-        <div className="show">
-          <h1>Issue Title</h1>
-          <h2>Issue number</h2>
-          <p>open status indicator <span><em>amount of time issue has been open</em></span></p>
-          <hr/>
-          <img src="http://via.placeholderimg/80" alt="user image"/>
-          <div>
-            <h2>Parsed markdown</h2>
-            <p>asdklfjl;kasdjfl;kasdjflkasjdf asdjlfkasj dlkfj aslkdf jaslkdjf alksdjfasdj flk;asdj fals;djf l;aksdjf laksdjfhiuqeo;fjasd;klf jasf iqae jflask;jdf ;asdfj ak;sdjhfkjasdhglasdfj asdf lkasjf sak</p>
-          </div>
-        </div>
+        <IssueShow />
       </div>
     );
   }
