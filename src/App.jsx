@@ -3,7 +3,22 @@ import axios from 'axios'
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      issues: []
+    }
+  }
+  
+  componentDidMount() {
+    console.log('component did mount')
+    axios.get('https://api.github.com/repos/facebook/react/issues?page=1&per_page=100')
+    .then(res => this.setState({issues: res.data}))
+  }
+  
   render() {
+    console.log('rendering app')
+    console.log('state', this.state)
     return (
       <div className="App">
         <nav className='nav'>
