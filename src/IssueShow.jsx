@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function(props) {
+export default function IssueShow(props) {
     return (
         <div className="show">
         <h1>Issue Title</h1>
