@@ -1,68 +1,81 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# ![GA Logo](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) React Weekend - Github Issues Clone
+___
+## Objective
+-  Build a _**simplified**_ clone of the [Github Issues pages](https://github.com/facebook/react/issues) for the _react_ repo Using **React**, **React Router** and the **Github API**
 
-## Available Scripts
+![Github Issues](./public/media/react_issues.png)
+___
+## Requirements
+Your clone should have the following features:
+  - a landing view with a link to 
+  - an "index" view of open _issues_ for the repo
+  - a "show" view to display the details for individual _issues_
 
-In the project directory, you can run:
+Your app will use React Router to navigate between different views.
 
-### `npm start`
+Your app will be styled to look somewhat like Github
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+_Strive to write Components that you can reuse in multiple places in your app_
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### Example Deliverable:
 
-### `npm test`
+**`/` - Landing**
+![Landing](./public/media/landing.png)
+**`/issues` - Index**
+![index](./public/media/index.png)
+**`/issues/:id` - Show**
+![show](./public/media/show.png)
+___
+## Getting Started
+- Use `create-react-app` to generate a new project called 'react-github-issues'
+- Generate an empty repo on Github and hook up your local repo to the remote
+- Study the examples and the [real live Github Issues page](https://github.com/facebook/react/issues) and review the [Thinking in React](https://reactjs.org/docs/thinking-in-react.html) article from the docs to come up with a solid plan for your components.
+- No API keys are required to access the Github Issues endpoint located here `https://api.github.com/repos/facebook/react/issues?page=1&per_page=100`
+    - [Github API Docs - Issues Endpoint](https://developer.github.com/v3/issues/)
+    - Looks like the limit is a return of 100 issues per call
+    - You are welcome to use the issues from another large repo if you would like to
+- use `fetch` or install and use `axios`
+- Install `react-router-dom`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+___
+## Tips & Tricks
+### Moment.js
+[Moment.js](https://momentjs.com/) offers an excellent set of utilities to deal with all that wibbly-wobbly, timey-wimey stuff that makes programming things that deal with time obnoxious. It can do powerful and amazing things... however, you may find the `.fromNow()` method helpful for this deliverable.
 
-### `npm run build`
+### react-markdown
+The main content of an `Issue` returned from the API is comes back as stringified markdown. We can make use of the third-party utility package, `react-markdown`. 
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+$ npm install react-markdown
+```
+You can then use it within a component to parse the the markdown and display formatted text
+```js
+import React from 'react';
+import ReactMarkdown from 'react-markdown';
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+const FormattedContent = props => {
+  /* stuff */ 
+  return (
+    <ReactMarkdown source={props.markdownContent} />
+  )
+}
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+export default FormattedContent;
+```
+More Info can be found [here](https://github.com/rexxars/react-markdown).
+___
 
-### `npm run eject`
+If you get stuck, follow the principles of Read, Search, Ask. Review your labs, weekly deliverables and code-alongs. Remember to check the docs, google your question or ask a colleague. Happy hacking!
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+___
+## Bonuses
+Want more?
+- Roll your own pagination scheme and only show 20 issues per page on the index view
+- explore the FontAwesome Component library and use their icons in your app
+- create methods to sort by number of comments, date etc...
+- Explore `axios.all()` to bring in more issues with `?state=closed` appended to the query and make a filter to show closed issues
+- find the Pull Requests API endpoint and extend your app to include them
+___
+## Licensing
+1. All content is licensed under a CC-BY-NC-SA 4.0 license.
+2. All software code is licensed under GNU GPLv3. For commercial use or alternative licensing, please contact legal@ga.co.
