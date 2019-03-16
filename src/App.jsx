@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios'
+import axios from 'axios';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import SplashPage from './SplashPage';
 import IssueIndex from './IssueIndex';
@@ -23,21 +24,23 @@ class App extends Component {
     console.log('rendering app')
     console.log('state', this.state)
     return (
-      <div className="App">
-        <nav className='nav'>
-          <ul>
-            <li>Git Logo</li>
-            <li>Search Bar</li>
-            <li>Pull Requests</li>
-            <li>Issues</li>
-            <li>Marketplace</li>
-            <li>Explore</li>
-          </ul>
-        </nav>
-        <SplashPage />
-        <IssueIndex />
-        <IssueShow />
-      </div>
+      <Router>
+        <div className="App">
+          <nav className='nav'>
+            <ul>
+              <li>Git Logo</li>
+              <li>Search Bar</li>
+              <li>Pull Requests</li>
+              <li>Issues</li>
+              <li>Marketplace</li>
+              <li>Explore</li>
+            </ul>
+          </nav>
+          <Route path='/' component={SplashPage} />
+          <Route exact path='/issues' component={IssueIndex} />
+          <Route exact path='/issues/:id' component={IssueShow} />
+        </div>
+      </Router>
     );
   }
 }
