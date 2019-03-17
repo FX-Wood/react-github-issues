@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link as A } from 'react-router-dom';
 import './App.css';
 import SplashPage from './SplashPage';
 import IssueIndex from './IssueIndex';
@@ -28,12 +28,12 @@ class App extends Component {
         <div className="App">
           <nav className='nav'>
             <ul>
-              <li>Git Logo</li>
-              <li>Search Bar</li>
-              <li>Pull Requests</li>
-              <li>Issues</li>
-              <li>Marketplace</li>
-              <li>Explore</li>
+              <li><A to='/'>Octicon</A></li>
+              <li><input type="text" placeholder="Search or jump to..." /></li>
+              <li> <A to='/pulls'> Pull Requests </A></li>
+              <li><A to='/issues'>Issues</A></li>
+              <li><A to='/marketplace'>Marketplace</A></li>
+              <li><A to='/explore'>Explore</A></li>
             </ul>
           </nav>
           <Route path='/' component={SplashPage} />
