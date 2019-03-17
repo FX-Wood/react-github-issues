@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { BrowserRouter as Router, Route, Link as A } from 'react-router-dom';
 import './App.css';
+import Nav from './Nav';
 import SplashPage from './SplashPage';
+import SplashButton from './SplashButton';
 import IssueIndex from './IssueIndex';
 import IssueShow from './IssueShow';
-import Nav from './Nav';
 
 class App extends Component {
   constructor(props) {
@@ -29,6 +30,7 @@ class App extends Component {
         <div className="App">
           <Nav />
           <Route path='/' component={SplashPage} />
+          <Route exact path='/' component={SplashButton} />
           <Route exact path='/issues' render={ () => <IssueIndex issues={this.state.issues} />} />
           <Route exact path='/issues/:id' component={IssueShow} />
         </div>
