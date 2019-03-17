@@ -5,6 +5,7 @@ import './App.css';
 import SplashPage from './SplashPage';
 import IssueIndex from './IssueIndex';
 import IssueShow from './IssueShow';
+import Nav from './Nav';
 
 class App extends Component {
   constructor(props) {
@@ -26,16 +27,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <nav className='nav'>
-            <ul>
-              <li><A to='/'>Octicon</A></li>
-              <li><input type="text" placeholder="Search or jump to..." /></li>
-              <li> <A to='/pulls'> Pull Requests </A></li>
-              <li><A to='/issues'>Issues</A></li>
-              <li><A to='/marketplace'>Marketplace</A></li>
-              <li><A to='/explore'>Explore</A></li>
-            </ul>
-          </nav>
+          <Nav />
           <Route path='/' component={SplashPage} />
           <Route exact path='/issues' render={ () => <IssueIndex issues={this.state.issues} />} />
           <Route exact path='/issues/:id' component={IssueShow} />
