@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link as A } from 'react-router-dom';
 
 export default function IssueIndex({ issues }) {
     console.log('issue index', issues)
@@ -28,10 +29,13 @@ export default function IssueIndex({ issues }) {
                         return (
                             <div className="issueListItem" key={issue.id}>
                                 <div className="listItemHeader">
-                                    <span>{issue.state}</span> <h3>{issue.title}</h3>
+                                    <span>{issue.state}</span> 
+                                    <A to={'/issues/' + issue.id}><h3>{issue.title}</h3></A>
+                                    <div className="flexFiller"></div>
+                                    <p className="comments"> <i>comments</i> {issue.comments}</p>
                                 </div>
-                                <p>{issue.number} | {issue.created_at}</p>
-                                <p className="comments"> <i>comments</i> {issue.comments}</p>
+                                <p>#{issue.number} | {issue.created_at}</p>
+                                
                             </div>
                         )
                     })}

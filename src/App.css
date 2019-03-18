@@ -46,14 +46,15 @@
   margin: 1em 0;
 }
 
+.issueListItem * {
+  margin: 0;
+}
 .issueListItem {
   text-align: left;
   border-top: var(--main-border);
+  padding: .5em;
 }
 
-.issueListItem > * {
-  margin: .25em;
-}
 
 .issueIndexListHeader {
   display: flex;
@@ -67,8 +68,6 @@
   display: flex;
   align-items: center;
 }
-
-.comments {
-  float: right;
-  margin: 1em
+.listItemHeader * {
+  margin: 0;
 }

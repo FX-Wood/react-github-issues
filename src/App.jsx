@@ -34,7 +34,7 @@ class App extends Component {
           <Route path='/' component={SplashPage} />
           <Route exact path='/' component={SplashButton} />
           <Route exact path='/issues' render={ () => <IssueIndex issues={this.state.issues} />} />
-          <Route exact path='/issues/:id' component={IssueShow} />
+          <Route path='/issues/:id' render={ () => <IssueShow issues={this.state.issues} /> } />
         </div>
       </Router>
     );
