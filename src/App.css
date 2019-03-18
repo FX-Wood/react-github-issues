@@ -1,3 +1,8 @@
+:root {
+  --main-border: .25px solid #e1e4e8;
+}
+
+
 .App {
   text-align: center;
 }
@@ -13,6 +18,57 @@
 }
 @media only screen and (min-width: 768px) {
   .nav input {
-    width: 300px
+    width: 300px;
   }
+}
+.issueIndex {
+  width: 980px;
+  margin: auto;
+}
+.issueIndexHeader {
+  display: flex;
+  width: 100%;
+}
+.issueIndexHeader > * {
+  font-size: .8em;
+  padding: .8em;
+  font-weight: 600;
+}
+.issueIndexHeader > input {
+  width: 300px;
+}
+.flexFiller {
+  flex-grow: 2
+}
+
+.issueIndexList {
+  border: var(--main-border);
+  margin: 1em 0;
+}
+
+.issueListItem {
+  text-align: left;
+  border-top: var(--main-border);
+}
+
+.issueListItem > * {
+  margin: .25em;
+}
+
+.issueIndexListHeader {
+  display: flex;
+}
+
+.issueIndexListHeader > * {
+  padding: .8em;
+}
+
+.listItemHeader {
+  display: flex;
+  align-items: center;
+}
+
+.comments {
+  float: right;
+  margin: 1em
 }

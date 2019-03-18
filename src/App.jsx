@@ -20,6 +20,8 @@ class App extends Component {
     console.log('component did mount')
     axios.get('https://api.github.com/repos/facebook/react/issues?page=1&per_page=100')
     .then(res => this.setState({issues: res.data}))
+    axios.get('https://api.github.com/orgs/facebook/repos?per_page=100')
+    .then(res => console.log('repos', res.data))
   }
   
   render() {
